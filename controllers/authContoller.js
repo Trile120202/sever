@@ -7,6 +7,7 @@ module.exports = {
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
+            location: req.body.location,
             password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET).toString(),
         });
 
