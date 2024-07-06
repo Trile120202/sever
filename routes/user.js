@@ -12,7 +12,7 @@ router.delete("/", verifyToken, userController.deleteUser);
 
 // GET USER
 
-router.get("/", verifyToken, userController.getUser);
+router.get("/profile", verifyToken, userController.getUser);
 
 
 module.exports = router
