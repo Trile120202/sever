@@ -6,7 +6,7 @@ module.exports = {
     const { cartItem, quantity } = req.body;
 
     try {
-      // Check if the cart already exists for the user
+      //Check cart already exit user
       const cart = await Cart.findOne({ userId });
 
       if (cart) {
