@@ -8,6 +8,7 @@ module.exports = {
             username: req.body.username,
             email: req.body.email,
             password: CryptoJS.AES.encrypt(req.body.password, process.env.SECRET).toString(),
+            location:req.body.location,
         });
 
         try {
