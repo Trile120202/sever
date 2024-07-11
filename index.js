@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => console.log("db connected")).
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors({
-    origin: 'admin-production-bd15.up.railway.app', 
+    origin: 'admin-production-1601.up.railway.app', 
 }));
 
 app.use("/api/", authRoute);
