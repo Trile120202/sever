@@ -1,14 +1,29 @@
 const mongoose = require("mongoose");
 
+const productSchema = new mongoose.Schema(
+  {
+    productId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+      required: true
+    },
+    quantity: {
+      type: Number,
+      required: true
+    },
+    price: {
+      type: Number,
+      required: true
+    }
+  },
+  { _id: false }
+);
+
 const orderSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
     customerId: { type: String, required: true },
-    productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product"
-    }, 
-    quantity: { type: Number, required: true},
+    products: [productSchema], // Thay đổi ở đây để lưu danh sách sản phẩm
     subtotal: { type: Number, required: true },
     total: { type: Number, required: true },
     delivery_status: { type: String, default: "pending" },
