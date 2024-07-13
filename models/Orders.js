@@ -22,6 +22,7 @@ const productSchema = new mongoose.Schema(
 const orderSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
+    customerId: { type: String, required: true },
     products: [productSchema],
     subtotal: { type: Number, required: true },
     total: { type: Number, required: true },
