@@ -21,7 +21,7 @@ module.exports = {
           const userOrders = await Orders.find({ userId })
             .populate({
               path: 'products.productId',
-              select: '-price -description -category', 
+              select: '-oldPrice -description -category', 
             }) 
             .exec();
       
