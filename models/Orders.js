@@ -22,8 +22,7 @@ const productSchema = new mongoose.Schema(
 const orderSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
-    customerId: { type: String, required: true },
-    products: [productSchema], // Thay đổi ở đây để lưu danh sách sản phẩm
+    products: [productSchema],
     subtotal: { type: Number, required: true },
     total: { type: Number, required: true },
     delivery_status: { type: String, default: "pending" },
