@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const favoriteSchema = new mongoose.Schema(
   {
-    userId: { type: String, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
     products: [
       {
-        productId: { type: String, required: true },
+        productId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Product' },
         name: { type: String, required: true },
         category: { type: String, required: true },
         imageUrl: { type: String, required: true },
