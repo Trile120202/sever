@@ -6,7 +6,7 @@ module.exports = {
     const { cartItem, quantity } = req.body;
 
     try {
-      //Check cart already exit user
+  
       const cart = await Cart.findOne({ userId });
 
       if (cart) {
@@ -15,18 +15,17 @@ module.exports = {
         );
 
         if (existingProduct) {
-          // Increment the quantity if the cartItem exists
+       
           existingProduct.quantity += 1;
         } else {
-          // Add the new product to the cart
+
           cart.products.push({ cartItem, quantity: 1 });
         }
 
-        // Save the updated cart
         await cart.save();
         res.status(200).json("Product added to cart");
       } else {
-        // Create a new cart and add the product
+
         const newCart = new Cart({
           userId,
           products: [{ cartItem, quantity: 1 }],
